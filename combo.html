@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
+    <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.2.0.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://use.fontawesome.com/f22f870f1e.js"></script>
+	<script src="combobox.js"></script>
+	<link href="combobox.css" rel="stylesheet" />
+	<link href="page.css" rel="stylesheet" />
+  </head>
+
+  <body ng-app="combobox">
+    <div class='container-fluid' ng-controller="ComboBoxCtrl as comboCtrl"> <!--bind scope to controller -->
+    
+	<!-- combo block -->	
+	<div class="comboBox">
+        <p class="input-group">
+          <input type="text" is-open="comboCtrl.isOpen" ng-model="comboCtrl.selected"
+            uib-typeahead="state for state in comboCtrl.states | filter:$viewValue | limitTo:8"
+            class="form-control comboInp" typeahead-min-length="0" typeahead-is-open="comboCtrl.comboOpen"
+            ng-click="comboCtrl.click()" ng-blur="comboCtrl.newclick()">
+            <span class="input-group-addon" combo-click ng-click="click()">
+              <i class="fa fa-chevron-down" combo-click ng-click="click()"></i>
+            </span>
+        </p>
+      </div>
+	 <!--combo-end -->
+	 
+    </div>
+</html>
